@@ -37,7 +37,9 @@ let server = http.createServer(app)
     io.on('connection', function(socket){
       console.log('a user connected');
       socket.on('chat message', function(msg){
-        console.log('message: ' + msg);
+        console.log('chat message received' );
+        io.emit('chat message', msg);
+        console.log('and reemitted' );
       });
       socket.on('disconnect', function(){
         console.log('user disconnected');

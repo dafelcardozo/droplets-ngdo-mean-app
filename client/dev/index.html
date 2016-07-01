@@ -1,78 +1,90 @@
 <!doctype html>
 <html>
-  <head>
-    <base href="/" >
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="shortcut icon" type="image/ico" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
-    <script src="displayMap.js" charset="utf-8"></script>
-    <script src="socket.io.js"></script>
+<head>
+  <base href="/" >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <link rel="shortcut icon" type="image/ico" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://openlayers.org/en/v3.16.0/css/ol.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
+  <script src="displayMap.js" charset="utf-8"></script>
+  <script src="socket.io.js"></script>
+  <style>
+  .messagesBar  { width:300px; position:absolute;right:1px;top:50px}
 
-
-<style>
-  /** { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font: 13px Helvetica, Arial; }*/
-  .messagesBar  { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-  .messagesBar  input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-  .messagesBar  button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
   #messages { list-style-type: none; margin: 0; padding: 0; }
   #messages li { padding: 5px 10px; }
-  #messages li:nth-child(odd) { background: #eee; }
-</style>
-    <title>Droplets - Please donate !</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Droplets</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="/donors">I am a donor</a></li>
-          <li><a href="/todos">I am a patient</a></li>
-          <li><a href="/gis">Map</a></li>
-        </ul>
+
+  </style>
+  <title>Droplets - Please donate !</title>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Droplets</a>
       </div>
-    </nav>
-    <app></app>
-    <script src="./systemjs/dist/system.js?rev=@@hash"></script>
-    <script src="./reflect-metadata/Reflect.js?rev=@@hash"></script>
-    <script src="./zone.js/dist/zone.js?rev=@@hash"></script>
-    <script src="./config.js?rev=@@hash"></script>
-    <script>
-      System.import("./index.js");
-    </script>
-    <div class="messagesBar">
-      <ul id="messages"></ul>
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <ul class="nav navbar-nav">
+        <li><a href="/donors">I am a donor</a></li>
+        <li><a href="/todos">I am a patient</a></li>
+        <li><a href="/gis">Map</a></li>
+      </ul>
+    </div>
+  </nav>
+  <app></app>
+  <script src="./systemjs/dist/system.js?rev=@@hash"></script>
+  <script src="./reflect-metadata/Reflect.js?rev=@@hash"></script>
+  <script src="./zone.js/dist/zone.js?rev=@@hash"></script>
+  <script src="./config.js?rev=@@hash"></script>
+  <script>
+  System.import("./index.js");
+  </script>
+  <div class="messagesBar panel panel-primary" >
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#messagesCollapsible">
+          Chat now with other donors !</a>
+        </h4>
+      </div>
+      <div id="messagesCollapsible" class="panel-collapse collapse">
+        <div class="panel-body" >
+          <ul id="messages"></ul>
+          <form class="form-horizontal" role="form">
+            <div class="input-group" >
+              <input id="m" autocomplete="off" type="text" class="form-control">
+                <span class="input-group-btn">
+                  <button class="glyphicon glyphicon-send btn btn-info" type="button" ></button>
+                </span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <script>
 
     function initSocketChat() {
-      console.info("initSocketChat");
       $('.messagesBar').show();
-
       $('.messagesBar button').click(function(e){
-        console.info("Clicked");
-
         io().emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
-
     }
 
     $(document).ready(function() {
       $('.messagesBar').hide();
       setTimeout(initSocketChat, 10000);
+
+      io().on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+
     });
     </script>
   </body>
-</html>
+  </html>
