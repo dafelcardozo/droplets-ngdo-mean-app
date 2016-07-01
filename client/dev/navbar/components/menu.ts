@@ -4,10 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'menu',
+  selector: 'navmenu',
   templateUrl: 'navbar/templates/menu.html',
   styleUrls: ['navbar/styles/menu.css']
 })
-export class Menu {
+export class NavMenu {
   name: string = `yo, I'm your component :D`;
 }

@@ -16,6 +16,7 @@ var Donor = (function () {
         this._todoService = _todoService;
         this.title = "ng2do";
         this.name = "yo, I'm your component :D";
+        this.field = 1;
         this.form = fb.group({
             "todoMessage": ["", forms_1.Validators.required]
         });
@@ -23,13 +24,22 @@ var Donor = (function () {
     Donor.prototype.ngOnInit = function () {
         //  this._getAll();
     };
+    Donor.prototype.next = function () {
+        this.field++;
+    };
+    Donor.prototype.previous = function () {
+        this.field--;
+    };
+    Donor.prototype.onSubmit = function () {
+    };
     Donor = __decorate([
         core_1.Component({
             selector: 'donors',
             templateUrl: 'profile-form/templates/donor.html',
             styleUrls: ['profile-form/styles/donor.css'],
             directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
-            providers: [donor_1.DonorsService]
+            providers: [donor_1.DonorsService],
+            styles: ["[hidden]:not([broken]) { display: none !important;}"]
         }), 
         __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService])
     ], Donor);

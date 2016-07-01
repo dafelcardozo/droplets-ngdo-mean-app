@@ -22,12 +22,14 @@ import {
   templateUrl: 'profile-form/templates/donor.html',
   styleUrls: ['profile-form/styles/donor.css'],
   directives: [REACTIVE_FORM_DIRECTIVES],
-  providers: [DonorsService]
+  providers: [DonorsService],
+  styles: [`[hidden]:not([broken]) { display: none !important;}`]
 })
 export class Donor implements OnInit {
   title: string = "ng2do";
   form: FormGroup;
     name: string = `yo, I'm your component :D`;
+    field:number=1;
 
   constructor(fb:FormBuilder, private _todoService: DonorsService) {
     this.form = fb.group({
@@ -37,6 +39,15 @@ export class Donor implements OnInit {
 
   ngOnInit() {
   //  this._getAll();
+  }
+  next() {
+    this.field++;
+  }
+  previous() {
+    this.field--;
+  }
+  onSubmit() {
+    
   }
 /*
   private _getAll():void {

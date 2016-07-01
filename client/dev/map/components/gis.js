@@ -9,18 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var NavMenu = (function () {
-    function NavMenu() {
+var Gis = (function () {
+    function Gis() {
         this.name = "yo, I'm your component :D";
+        displayMap();
     }
-    NavMenu = __decorate([
+    Gis = __decorate([
         core_1.Component({
-            selector: 'navmenu',
-            templateUrl: 'navbar/templates/menu.html',
-            styleUrls: ['navbar/styles/menu.css']
+            selector: 'gis',
+            templateUrl: 'map/templates/gis.html',
+            styleUrls: ['map/styles/gis.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], NavMenu);
-    return NavMenu;
+    ], Gis);
+    return Gis;
 }());
-exports.NavMenu = NavMenu;
+exports.Gis = Gis;
