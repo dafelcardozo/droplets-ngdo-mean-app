@@ -6,7 +6,7 @@ var _ = require('lodash');
 donor_model_1.default.static('getAll', function () {
     return new Promise(function (resolve, reject) {
         var _query = {};
-        donor
+        Donor
             .find(_query)
             .exec(function (err, donors) {
             err ? reject(err)
@@ -19,7 +19,7 @@ donor_model_1.default.static('createNew', function (donor) {
         if (!_.isObject(donor)) {
             return reject(new TypeError('Todo is not a valid object.'));
         }
-        var _something = new donor(donor);
+        var _something = new Donor(donor);
         _something.save(function (err, saved) {
             err ? reject(err)
                 : resolve(saved);
@@ -31,7 +31,7 @@ donor_model_1.default.static('removeById', function (id) {
         if (!_.isString(id)) {
             return reject(new TypeError('Id is not a valid string.'));
         }
-        donor
+        Donor
             .findByIdAndRemove(id)
             .exec(function (err, deleted) {
             err ? reject(err)
@@ -39,7 +39,8 @@ donor_model_1.default.static('removeById', function (id) {
         });
     });
 });
-var donor = mongoose.model('donor', donor_model_1.default);
-var donorDAO = donor;
+var Donor = mongoose.model('Donor', donor_model_1.default);
+var donorDAO = Donor;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = donorDAO;
+//# sourceMappingURL=donor-dao.js.map

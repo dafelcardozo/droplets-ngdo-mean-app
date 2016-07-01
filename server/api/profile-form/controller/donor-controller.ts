@@ -17,7 +17,10 @@ export class donorController {
     donorDAO
       ['createNew'](_donor)
       .then(donor => res.status(201).json(donor))
-      .catch(error => res.status(400).json(error));
+      .catch(error => {
+        res.status(401).json(error);
+        console.log("Error: "+error);
+      });
   }
 
   static remove(req:express.Request, res:express.Response) {

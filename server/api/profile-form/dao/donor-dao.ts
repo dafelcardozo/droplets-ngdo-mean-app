@@ -9,7 +9,7 @@ donorSchema.static('getAll', () => {
   return new Promise((resolve, reject) => {
     let _query = {};
 
-    donor
+    Donor
     .find(_query)
     .exec((err, donors) => {
       err ? reject(err)
@@ -23,8 +23,7 @@ donorSchema.static('createNew', (donor) => {
       if (!_.isObject(donor)) {
         return reject(new TypeError('Todo is not a valid object.'));
       }
-
-      let _something = new donor(donor);
+      let _something = new Donor(donor);
 
       _something.save((err, saved) => {
         err ? reject(err)
@@ -39,7 +38,7 @@ donorSchema.static('removeById', (id) => {
         return reject(new TypeError('Id is not a valid string.'));
       }
 
-      donor
+      Donor
       .findByIdAndRemove(id)
       .exec((err, deleted) => {
         err ? reject(err)
@@ -48,7 +47,7 @@ donorSchema.static('removeById', (id) => {
     });
 });
 
-let donor  = mongoose.model('donor', donorSchema);
-let donorDAO = donor;
+let Donor  = mongoose.model('Donor', donorSchema);
+let donorDAO = Donor;
 //export default donor ;
 export default donorDAO ;

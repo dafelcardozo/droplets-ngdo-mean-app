@@ -12,7 +12,10 @@ var donorController = (function () {
         var _donor = req.body;
         donor_dao_1.default['createNew'](_donor)
             .then(function (donor) { return res.status(201).json(donor); })
-            .catch(function (error) { return res.status(400).json(error); });
+            .catch(function (error) {
+            res.status(401).json(error);
+            console.log("Error: " + error);
+        });
     };
     donorController.remove = function (req, res) {
         var _id = req.params.id;
@@ -29,3 +32,4 @@ var donorController = (function () {
     return donorController;
 }());
 exports.donorController = donorController;
+//# sourceMappingURL=donor-controller.js.map
