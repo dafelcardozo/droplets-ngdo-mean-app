@@ -32,4 +32,3 @@ var donorController = (function () {
     return donorController;
 }());
 exports.donorController = donorController;
-//# sourceMappingURL=donor-controller.js.map

@@ -1,3 +1,7 @@
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 import {
   Component,
   Inject,
@@ -12,13 +16,10 @@ import {
   FormControl
 } from '@angular/forms';
 
-import {
-  DonorsService
-} from '../services/donor';
+import {DonorsService} from '../services/donor';
 
-import {
-  DonorProfile
-} from '../models/donor';
+import {DonorProfile} from '../models/donor';
+
 
 @Component({
   selector: 'donors',
@@ -31,10 +32,7 @@ import {
 export class Donor implements OnInit {
   title: string = "ng2do";
   myFormGroup: FormGroup;
-  //++}  firstName: string ;
-    field:number=1;
-
-  ///   profile = new DonorProfile("", "", "", "", "");
+  field:number=1;
 
   constructor(fb:FormBuilder, private _donorsService: DonorsService) {
     this.myFormGroup = fb.group({
@@ -55,10 +53,10 @@ export class Donor implements OnInit {
   }
   sendData(firstName, lastName, contactNumber, emailAddress, bloodGroup) {
    let p = new DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
-   console.log("p: "+JSON.stringify(p));
-     let kaka = this._donorsService.post(p)
+   this._donorsService.post(p)
      .subscribe((m) => {
-       console.info("Responded: "+m);
+//       var popo = JSON.stringify(m);//.map(response => {console.info(response.json())})}
+       console.info("popo: "+m._id);
 //      (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
      });
   }
