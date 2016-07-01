@@ -1,11 +1,12 @@
 {
   "dependencies": {
     "bluebird": "registry:npm/bluebird#3.2.1+20160211005852",
+    "debug": "registry:npm/debug#2.0.0+20160511151334",
     "lodash": "registry:npm/lodash#4.0.0+20160305082308"
   },
   "globalDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
     "body-parser": "registry:dt/body-parser#0.0.0+20160112113357",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
     "helmet": "registry:dt/helmet#0.0.0+20160112163250",
@@ -14,6 +15,7 @@
     "mongoose": "registry:dt/mongoose#3.8.5+20160316155526",
     "morgan": "registry:dt/morgan#1.2.2+20160104041339",
     "node": "registry:dt/node#4.0.0+20160311162451",
-    "serve-static": "registry:dt/serve-static#0.0.0+20160104095738"
+    "serve-static": "registry:dt/serve-static#0.0.0+20160104095738",
+    "socket.io": "registry:dt/socket.io#1.4.4+20160317120654"
   }
 }

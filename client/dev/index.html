@@ -13,6 +13,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="http://openlayers.org/en/v3.16.0/build/ol.js"></script>
     <script src="displayMap.js" charset="utf-8"></script>
+    <script src="socket.io.js"></script>
+
+
+<style>
+  /** { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font: 13px Helvetica, Arial; }*/
+  .messagesBar  { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+  .messagesBar  input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+  .messagesBar  button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+  #messages { list-style-type: none; margin: 0; padding: 0; }
+  #messages li { padding: 5px 10px; }
+  #messages li:nth-child(odd) { background: #eee; }
+</style>
     <title>Droplets - Please donate !</title>
   </head>
   <body>
@@ -36,6 +49,30 @@
     <script>
       System.import("./index.js");
     </script>
+    <div class="messagesBar">
+      <ul id="messages"></ul>
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </div>
+    <script>
 
+    function initSocketChat() {
+      console.info("initSocketChat");
+      $('.messagesBar').show();
+
+      $('.messagesBar button').click(function(e){
+        console.info("Clicked");
+
+        io().emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+
+    }
+
+    $(document).ready(function() {
+      $('.messagesBar').hide();
+      setTimeout(initSocketChat, 10000);
+    });
+    </script>
   </body>
 </html>

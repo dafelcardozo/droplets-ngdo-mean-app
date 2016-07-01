@@ -13,6 +13,7 @@ import * as http from 'http';
 import {RoutesConfig} from './config/routes.conf';
 import {DBConfig} from './config/db.conf';
 import {Routes} from './routes/index';
+import * as sio from 'socket.io';
 
 const app = express();
 
@@ -20,8 +21,25 @@ RoutesConfig.init(app);
 DBConfig.init();
 Routes.init(app, express.Router());
 
-http.createServer(app)
+
+
+let server = http.createServer(app)
     .listen(PORT, () => {
       console.log(`up and running @: ${os.hostname()} on port: ${PORT}`);
       console.log(`enviroment: ${process.env.NODE_ENV}`);
+
+
+    });
+
+
+    let io = sio.listen(server);
+
+    io.on('connection', function(socket){
+      console.log('a user connected');
+      socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+      });
+      socket.on('disconnect', function(){
+        console.log('user disconnected');
+      });
     });
