@@ -16,6 +16,9 @@ import {
   DonorsService
 } from '../services/donor';
 
+import {
+  DonorProfile
+} from '../models/donor';
 
 @Component({
   selector: 'donors',
@@ -27,18 +30,22 @@ import {
 })
 export class Donor implements OnInit {
   title: string = "ng2do";
-  form: FormGroup;
-    name: string = `yo, I'm your component :D`;
+  myFormGroup: FormGroup;
+  //++}  firstName: string ;
     field:number=1;
 
-  constructor(fb:FormBuilder, private _todoService: DonorsService) {
-    this.form = fb.group({
-      "todoMessage": ["", Validators.required]
+  ///   profile = new DonorProfile("", "", "", "", "");
+
+  constructor(fb:FormBuilder, private _donorsService: DonorsService) {
+    this.myFormGroup = fb.group({
+      "firstName": ["", Validators.required],
+      "lastName": ["", Validators.required],
+      "contactNumber": ["", Validators.required],
+      "emailAddress": ["", Validators.required],
+      "bloodGroup": ["", Validators.required]
     });
   }
-
   ngOnInit() {
-  //  this._getAll();
   }
   next() {
     this.field++;
@@ -46,26 +53,13 @@ export class Donor implements OnInit {
   previous() {
     this.field--;
   }
-  onSubmit() {
-    
+  sendData(firstName, lastName, contactNumber, emailAddress, bloodGroup) {
+   let p = new DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
+   console.log("p: "+JSON.stringify(p));
+     let kaka = this._donorsService.post(p)
+     .subscribe((m) => {
+       console.info("Responded: "+m);
+//      (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
+     });
   }
-/*
-  private _getAll():void {
-    this._todoService
-        .getAll()
-        .subscribe((todos) => {
-          this.todos = todos;
-        });
-  }
-
-  add(message:string):void {
-    this._todoService
-        .add(message)
-        .subscribe((m) => {
-          this.todos.push(m);
-          (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
-        });
-  }
-  */
-
 }

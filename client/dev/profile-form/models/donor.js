@@ -1,10 +1,12 @@
 "use strict";
-var MyModel = (function () {
-    function MyModel() {
+var DonorProfile = (function () {
+    function DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contactNumber = contactNumber;
+        this.emailAddress = emailAddress;
+        this.bloodGroup = bloodGroup;
     }
-    MyModel.prototype.doStuff = function () {
-        return 1;
-    };
-    return MyModel;
+    return DonorProfile;
 }());
-exports.MyModel = MyModel;
+exports.DonorProfile = DonorProfile;

@@ -11,18 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var donor_1 = require('../services/donor');
+var donor_2 = require('../models/donor');
 var Donor = (function () {
-    function Donor(fb, _todoService) {
-        this._todoService = _todoService;
+    ///   profile = new DonorProfile("", "", "", "", "");
+    function Donor(fb, _donorsService) {
+        this._donorsService = _donorsService;
         this.title = "ng2do";
-        this.name = "yo, I'm your component :D";
+        //++}  firstName: string ;
         this.field = 1;
-        this.form = fb.group({
-            "todoMessage": ["", forms_1.Validators.required]
+        this.myFormGroup = fb.group({
+            "firstName": ["", forms_1.Validators.required],
+            "lastName": ["", forms_1.Validators.required],
+            "contactNumber": ["", forms_1.Validators.required],
+            "emailAddress": ["", forms_1.Validators.required],
+            "bloodGroup": ["", forms_1.Validators.required]
         });
     }
     Donor.prototype.ngOnInit = function () {
-        //  this._getAll();
     };
     Donor.prototype.next = function () {
         this.field++;
@@ -30,7 +35,14 @@ var Donor = (function () {
     Donor.prototype.previous = function () {
         this.field--;
     };
-    Donor.prototype.onSubmit = function () {
+    Donor.prototype.sendData = function (firstName, lastName, contactNumber, emailAddress, bloodGroup) {
+        var p = new donor_2.DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
+        console.log("p: " + JSON.stringify(p));
+        var kaka = this._donorsService.post(p)
+            .subscribe(function (m) {
+            console.info("Responded: " + m);
+            //      (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
+        });
     };
     Donor = __decorate([
         core_1.Component({
