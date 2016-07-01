@@ -1,0 +1,64 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false
+    },
+    "exclude": [
+        "node_modules",
+        "typings"
+    ],
+    "filesGlob": [
+        "**/*.ts",
+        "typings/main",
+        "typings/index.d.ts"
+    ],
+    "files": [
+        "client/dev/family/components/user.ts",
+        "client/dev/family/factory/user.ts",
+        "client/dev/family/models/user.ts",
+        "client/dev/family/services/user.ts",
+        "client/dev/index.ts",
+        "client/dev/profile-form/components/donor.ts",
+        "client/dev/profile-form/factory/donor.ts",
+        "client/dev/profile-form/models/donor.ts",
+        "client/dev/profile-form/services/donor.ts",
+        "client/dev/todo/components/todo-cmp.ts",
+        "client/dev/todo/services/todo-service.ts",
+        "server/api/profile-form/controller/donor-controller.ts",
+        "server/api/profile-form/dao/donor-dao.ts",
+        "server/api/profile-form/model/donor-model.ts",
+        "server/api/profile-form/routes/donor-route.ts",
+        "server/api/skateboard/controller/skate-controller.ts",
+        "server/api/skateboard/dao/skate-dao.ts",
+        "server/api/skateboard/model/skate-model.ts",
+        "server/api/skateboard/routes/skate-route.ts",
+        "server/api/todo/controller/todo-controller.ts",
+        "server/api/todo/dao/todo-dao.ts",
+        "server/api/todo/model/todo-model.ts",
+        "server/api/todo/routes/todo-routes.ts",
+        "server/auth/local/index.ts",
+        "server/commons/static/index.ts",
+        "server/config/db.conf.ts",
+        "server/config/routes.conf.ts",
+        "server/routes/index.ts",
+        "server/server.ts",
+        "tests/client/family/components/user_test.ts",
+        "tests/client/family/factory/user_test.ts",
+        "tests/client/family/models/user_test.ts",
+        "tests/client/family/services/user_test.ts",
+        "tests/client/profile-form/components/donor_test.ts",
+        "tests/client/profile-form/factory/donor_test.ts",
+        "tests/client/profile-form/models/donor_test.ts",
+        "tests/client/profile-form/services/donor_test.ts",
+        "tests/client/todo/components/todo-cmp_test.ts",
+        "tests/client/todo/services/todo-service_test.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
