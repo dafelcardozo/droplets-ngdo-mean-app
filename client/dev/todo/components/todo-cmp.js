@@ -54,8 +54,8 @@ var TodoCmp = (function () {
     TodoCmp = __decorate([
         core_1.Component({
             selector: 'todo-cmp',
-            templateUrl: 'todo/templates/todo.html',
-            styleUrls: ['todo/styles/todo.css'],
+            templateUrl: './todo/templates/todo.html',
+            styleUrls: ['./todo/styles/todo.css'],
             directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
             providers: [todo_service_1.TodoService]
         }), 

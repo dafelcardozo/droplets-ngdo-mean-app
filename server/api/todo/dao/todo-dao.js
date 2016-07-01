@@ -39,6 +39,19 @@ todo_model_1.default.static('deleteTodo', function (id) {
         });
     });
 });
+todo_model_1.default.static('getTodo', function (id) {
+    return new Promise(function (resolve, reject) {
+        if (!_.isString(id)) {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+        Todo
+            .findById(id)
+            .exec(function (err, deleted) {
+            err ? reject(err)
+                : resolve(deleted);
+        });
+    });
+});
 var Todo = mongoose.model('Todo', todo_model_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Todo;

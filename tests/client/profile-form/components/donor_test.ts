@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 
 describe('myComponent', () => {
-  beforeEachProviders([]);
+//  beforeEachProviders([]);
 
   describe('creation', () => {
 

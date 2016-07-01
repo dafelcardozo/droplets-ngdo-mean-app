@@ -8,10 +8,10 @@ export class donorRoutes {
     router
       .route('/api/donor')
       .get(donorController.getAll)
-      .post(donorController.createNew);
+      .post(donorController.createNew); 
 
     router
       .route('/api/donor/:id')
-      .delete(donorController.removeById);
+      .delete(donorController.find );
   }
 }

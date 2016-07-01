@@ -2,7 +2,7 @@
 
 import * as mongoose from 'mongoose';
 import * as Promise from 'bluebird';
-import skateSchema from '../model/skate-model';
+import skateSchema from '../model/skate-model' ;
 import * as _ from 'lodash';
 
 skateSchema.static('getAll', () => {
@@ -48,6 +48,6 @@ skateSchema.static('removeById', (id) => {
     });
 });
 
-let skateModel = mongoose.model('skate', skateSchema);
+let skate = mongoose.model('skate', skateSchema);
 
-export default skateModel;
+export default skate;

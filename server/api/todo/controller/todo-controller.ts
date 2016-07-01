@@ -30,10 +30,8 @@ export class TodoController {
   static findTodo(req: express.Request, res: express.Response):void {
     let _id = req.params.id;
 
-res.status(200).json("Ocupado");
-    // TodoDAO
-    //   ['deleteTodo'](_id)
-    //   .then(() => res.status(200).end())
-    //   .catch(error => res.status(400).json(error));
+    TodoDAO['getTodo'](_id)
+    .then(todo => res.status(200).json(todo))
+    .catch(error => res.status(400).json(error));
   }
 }

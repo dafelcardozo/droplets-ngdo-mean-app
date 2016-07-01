@@ -22,9 +22,10 @@ var TodoController = (function () {
     };
     TodoController.findTodo = function (req, res) {
         var _id = req.params.id;
-        res.status(200).json("Ocupado");
+        todo_dao_1.default['getTodo'](_id)
+            .then(function (todo) { return res.status(200).json(todo); })
+            .catch(function (error) { return res.status(400).json(error); });
     };
     return TodoController;
 }());
 exports.TodoController = TodoController;
-//# sourceMappingURL=todo-controller.js.map

@@ -8,9 +8,9 @@ donor_model_1.default.static('getAll', function () {
         var _query = {};
         donor
             .find(_query)
-            .exec(function (err, todos) {
+            .exec(function (err, donors) {
             err ? reject(err)
-                : resolve(todos);
+                : resolve(donors);
         });
     });
 });
@@ -39,6 +39,7 @@ donor_model_1.default.static('removeById', function (id) {
         });
     });
 });
-var donorModel = mongoose.model('donor', donor_model_1.default);
+var donor = mongoose.model('donor', donor_model_1.default);
+var donorDAO = donor;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = donorModel;
+exports.default = donorDAO;

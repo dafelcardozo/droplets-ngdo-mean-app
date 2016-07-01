@@ -10,7 +10,7 @@ var donorRoutes = (function () {
             .post(donor_controller_1.donorController.createNew);
         router
             .route('/api/donor/:id')
-            .delete(donor_controller_1.donorController.removeById);
+            .delete(donor_controller_1.donorController.find);
     };
     return donorRoutes;
 }());

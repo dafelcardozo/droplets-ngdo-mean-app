@@ -23,8 +23,8 @@ type Todo = {
 
 @Component({
   selector: 'todo-cmp',
-  templateUrl: 'todo/templates/todo.html',
-  styleUrls: ['todo/styles/todo.css'],
+  templateUrl: './todo/templates/todo.html',
+  styleUrls: ['./todo/styles/todo.css'],
   directives: [REACTIVE_FORM_DIRECTIVES],
   providers: [TodoService]
 })

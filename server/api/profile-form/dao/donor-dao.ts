@@ -11,9 +11,9 @@ donorSchema.static('getAll', () => {
 
     donor
     .find(_query)
-    .exec((err, todos) => {
+    .exec((err, donors) => {
       err ? reject(err)
-      : resolve(todos);
+      : resolve(donors);
     });
   });
 });
@@ -48,6 +48,7 @@ donorSchema.static('removeById', (id) => {
     });
 });
 
-let donorModel = mongoose.model('donor', donorSchema);
-
-export default donorModel;
+let donor  = mongoose.model('donor', donorSchema);
+let donorDAO = donor;
+//export default donor ;
+export default donorDAO ;

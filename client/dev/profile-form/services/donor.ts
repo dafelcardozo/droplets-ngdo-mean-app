@@ -2,7 +2,7 @@ interface IService {
   doStuff():number;
 }
 
-export class MyService implements IService {
+export class DonorsService implements IService {
   doStuff():number {
     return 1;
   }

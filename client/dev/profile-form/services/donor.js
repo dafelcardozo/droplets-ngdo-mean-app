@@ -1,10 +1,10 @@
 "use strict";
-var MyService = (function () {
-    function MyService() {
+var DonorsService = (function () {
+    function DonorsService() {
     }
-    MyService.prototype.doStuff = function () {
+    DonorsService.prototype.doStuff = function () {
         return 1;
     };
-    return MyService;
+    return DonorsService;
 }());
-exports.MyService = MyService;
+exports.DonorsService = DonorsService;

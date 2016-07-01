@@ -46,6 +46,21 @@ todoSchema.static('deleteTodo', (id:string):Promise<any> => {
     });
 });
 
+todoSchema.static('getTodo', (id:string):Promise<any> => {
+    return new Promise((resolve:Function, reject:Function) => {
+        if (!_.isString(id)) {
+            return reject(new TypeError('Id is not a valid string.'));
+        }
+
+        Todo
+          .findById(id)
+          .exec((err, deleted) => {
+              err ? reject(err)
+                  : resolve(deleted);
+          });
+    });
+});
+
 let Todo = mongoose.model('Todo', todoSchema);
 
 export default Todo;

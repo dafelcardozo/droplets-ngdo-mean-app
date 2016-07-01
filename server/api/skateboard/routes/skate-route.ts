@@ -12,6 +12,6 @@ export class skateRoutes {
 
     router
       .route('/api/skate/:id')
-      .delete(skateController.removeById);
+      .delete(skateController.remove);
   }
 }
