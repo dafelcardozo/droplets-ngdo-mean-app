@@ -1,6 +1,6 @@
 var displayMap = function() {
       setTimeout(function() {
-
+/*
              app.Drag = function() {
 
                ol.interaction.Pointer.call(this, {
@@ -36,7 +36,7 @@ var displayMap = function() {
                var deltaX = evt.coordinate[0] - this.coordinate_[0];
                var deltaY = evt.coordinate[1] - this.coordinate_[1];
 
-               var geometry = /** @type {ol.geom.SimpleGeometry} */
+               var geometry =
                    (this.feature_.getGeometry());
                geometry.translate(deltaX, deltaY);
 
@@ -67,6 +67,8 @@ var displayMap = function() {
                this.feature_ = null;
                return false;
              };
+
+             */
         var esrijsonFormat = new ol.format.EsriJSON();
         var view = new ol.View({
           center: [0, 0],
