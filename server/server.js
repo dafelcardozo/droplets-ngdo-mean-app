@@ -1,8 +1,7 @@
-/// <reference path="../typings/index.d.ts" />
 'use strict';
 if ('production' === process.env.NODE_ENV)
     require('newrelic');
-var PORT = process.env.PORT || 3333;
+var PORT = process.env.PORT || 80;
 var express = require('express');
 var os = require('os');
 var http = require('http');
@@ -18,3 +17,4 @@ http.createServer(app)
     console.log("up and running @: " + os.hostname() + " on port: " + PORT);
     console.log("enviroment: " + process.env.NODE_ENV);
 });
+//# sourceMappingURL=server.js.map
