@@ -57,9 +57,9 @@
           <form class="form-horizontal" role="form">
             <div class="input-group" >
               <input id="m" autocomplete="off" type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="glyphicon glyphicon-send btn btn-info" type="button" ></button>
-                </span>
+              <span class="input-group-btn">
+                <input type="submit" value="submit" class="glyphicon glyphicon-send btn btn-info" type="button" />
+              </span>
             </div>
           </form>
         </div>
@@ -67,24 +67,25 @@
     </div>
     <script>
 
-    function initSocketChat() {
-      $('.messagesBar').show();
-      $('.messagesBar button').click(function(e){
-        io().emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
-    }
-
     $(document).ready(function() {
-      $('.messagesBar').hide();
-      setTimeout(initSocketChat, 10000);
+        $('.messagesBar').hide();
+        setTimeout(function() {
+          $('.messagesBar').show();
 
-      io().on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
+        }, 10000);
+        io().on('chat message', function(msg){
+           $('#messages').append($('<li>').text(msg));
+           $('#m').val('');
+        });
+
+        $('.messagesBar form').submit(function(e) {
+             e.preventDefault();
+            io().emit('chat message', $('#m').val());
+             return false;
+         });
+
       });
 
-    });
-    </script>
-  </body>
-  </html>
+</script>
+</body>
+</html>
