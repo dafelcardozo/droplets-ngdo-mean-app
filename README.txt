@@ -1,7 +1,3 @@
-# droplets
-[![Build Status](https://secure.travis-ci.org/dafelcardozo/droplets.png?branch=master)](https://travis-ci.org/dafelcardozo/droplets)
-[![Coverage Status](https://coveralls.io/repos/dafelcardozo/droplets/badge.svg?branch=master)](https://coveralls.io/r/dafelcardozo/droplets/?branch=master)
-
 
 The Droplets sample application is a tool which provides a cetain bridge between patients and volunteer bloood donors, by enabling them to share their locations in a cloud web map.
 
@@ -24,3 +20,14 @@ Credits and thanks to the software tools and providers which I used to build thi
 - The Angular 2 and Node.js platforms, each of those are the two biggest software frameworks client and server side in the world today: https://angular.io/ and https://nodejs.org/en/
 - The Typescript and Javascript languages, in wich this sample application is entirely written. More about those here; https://en.wikipedia.org/wiki/TypeScript and there: https://en.wikipedia.org/wiki/JavaScript
 - and the countless other software tools and platforms that I use everyday while building software.
+
+
+As part of this sample application are the following documents:
+
+- system design document.
+- screens design document.
+- the building, deploying and running instructions.
+
+
+
+And very special thanks to Crossover and all of the people who will evaluate this tool !
