@@ -20,6 +20,10 @@
   #messages { list-style-type: none; margin: 0; padding: 0; }
   #messages li { padding: 5px 10px; }
 
+  #messages li:nth-child(odd) {
+      background: lightgrey;
+  }
+
   </style>
   <title>Droplets - Please donate !</title>
 </head>
@@ -68,11 +72,11 @@
     <script>
 
     $(document).ready(function() {
-        $('.messagesBar').hide();
-        setTimeout(function() {
-          $('.messagesBar').show();
-
-        }, 10000);
+        // $('.messagesBar').hide();
+        // setTimeout(function() {
+        //   $('.messagesBar').show();
+        //
+        // }, 10000);
         io().on('chat message', function(msg){
            $('#messages').append($('<li>').text(msg));
            $('#m').val('');
@@ -83,7 +87,6 @@
             io().emit('chat message', $('#m').val());
              return false;
          });
-
       });
 
 </script>
