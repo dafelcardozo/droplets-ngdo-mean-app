@@ -34,9 +34,8 @@
         <a class="navbar-brand" href="#">Droplets</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/donors">I am a donor</a></li>
+        <li><a href  data-toggle="modal" data-target="#myModal">I am a donor</a></li>
         <li><a href="/todos">I am a patient</a></li>
-        <li><a href="/gis">Map</a></li>
       </ul>
     </div>
   </nav>
@@ -48,47 +47,7 @@
   <script>
   System.import("./index.js");
   </script>
-  <div class="messagesBar panel panel-primary" >
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#messagesCollapsible">
-          Chat now with other donors !</a>
-        </h4>
-      </div>
-      <div id="messagesCollapsible" class="panel-collapse collapse">
-        <div class="panel-body" >
-          <ul id="messages"></ul>
-          <form class="form-horizontal" role="form">
-            <div class="input-group" >
-              <input id="m" autocomplete="off" type="text" class="form-control">
-              <span class="input-group-btn">
-                <input type="submit" value="submit" class="glyphicon glyphicon-send btn btn-info" type="button" />
-              </span>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <script>
 
-    $(document).ready(function() {
-        // $('.messagesBar').hide();
-        // setTimeout(function() {
-        //   $('.messagesBar').show();
-        //
-        // }, 10000);
-        io().on('chat message', function(msg){
-           $('#messages').append($('<li>').text(msg));
-           $('#m').val('');
-        });
 
-        $('.messagesBar form').submit(function(e) {
-             e.preventDefault();
-            io().emit('chat message', $('#m').val());
-             return false;
-         });
-      });
-
-</script>
 </body>
 </html>

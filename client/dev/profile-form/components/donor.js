@@ -15,10 +15,11 @@ var forms_1 = require('@angular/forms');
 var donor_1 = require('../services/donor');
 var donor_2 = require('../models/donor');
 var Donor = (function () {
-    function Donor(fb, _donorsService) {
+    function Donor(fb, _donorsService, el) {
         this._donorsService = _donorsService;
-        this.title = "ng2do";
+        this.el = el;
         this.field = 1;
+        this.active = true;
         this.myFormGroup = fb.group({
             "firstName": ["", forms_1.Validators.required],
             "lastName": ["", forms_1.Validators.required],
@@ -36,12 +37,15 @@ var Donor = (function () {
         this.field--;
     };
     Donor.prototype.sendData = function (firstName, lastName, contactNumber, emailAddress, bloodGroup) {
+        var _this = this;
         var p = new donor_2.DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
         this._donorsService.post(p)
             .subscribe(function (m) {
-            //       var popo = JSON.stringify(m);//.map(response => {console.info(response.json())})}
-            console.info("popo: " + m._id);
-            //      (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
+            _this.field = 1;
+            _this.active = false;
+            setTimeout(function () { return _this.active = true; }, 100);
+            io().emit('chat message', firstName + ' ' + lastName + ' has registered as a donor');
+            $("#myModal")["modal"]('hide');
         });
     };
     Donor = __decorate([
@@ -53,8 +57,9 @@ var Donor = (function () {
             providers: [donor_1.DonorsService],
             styles: ["[hidden]:not([broken]) { display: none !important;}"]
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService, core_1.ElementRef])
     ], Donor);
     return Donor;
 }());
 exports.Donor = Donor;
+//# sourceMappingURL=donor.js.map

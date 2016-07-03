@@ -12,7 +12,7 @@ declare var displayMap: any;
   styleUrls: ['map/styles/gis.css']
 })
 export class Gis {
-  name: string = `yo, I'm your component :D`;
+//  name: string = `yo, I'm your component :D`;
 
   constructor() {
     displayMap();

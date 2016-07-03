@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var Gis = (function () {
+    //  name: string = `yo, I'm your component :D`;
     function Gis() {
-        this.name = "yo, I'm your component :D";
         displayMap();
     }
     Gis = __decorate([

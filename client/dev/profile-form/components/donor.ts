@@ -1,3 +1,5 @@
+/// <reference path="../../bower_components/jquery/dist/jquery.d.ts" />
+/// <reference path="../../bower_components\socket.io-client\socket.io-client.d.ts" />
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
@@ -5,7 +7,8 @@ import 'rxjs/Rx';
 import {
   Component,
   Inject,
-  OnInit
+  OnInit,
+   Output, ElementRef
 } from '@angular/core';
 
 import {
@@ -17,7 +20,6 @@ import {
 } from '@angular/forms';
 
 import {DonorsService} from '../services/donor';
-
 import {DonorProfile} from '../models/donor';
 
 
@@ -30,11 +32,11 @@ import {DonorProfile} from '../models/donor';
   styles: [`[hidden]:not([broken]) { display: none !important;}`]
 })
 export class Donor implements OnInit {
-  title: string = "ng2do";
   myFormGroup: FormGroup;
   field:number=1;
+  active:boolean=true;
 
-  constructor(fb:FormBuilder, private _donorsService: DonorsService) {
+  constructor(fb:FormBuilder, private _donorsService: DonorsService, private el: ElementRef) {
     this.myFormGroup = fb.group({
       "firstName": ["", Validators.required],
       "lastName": ["", Validators.required],
@@ -55,9 +57,11 @@ export class Donor implements OnInit {
    let p = new DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
    this._donorsService.post(p)
      .subscribe((m) => {
-//       var popo = JSON.stringify(m);//.map(response => {console.info(response.json())})}
-       console.info("popo: "+m._id);
-//      (<FormControl>this.todoForm.controls['todoMessage']).updateValue("");
+       this.field = 1;
+       this.active = false;
+       setTimeout(() => this.active = true, 100);
+         io().emit('chat message', firstName+' '+lastName+' has registered as a donor');
+       $("#myModal")["modal"]('hide');
      });
   }
 }

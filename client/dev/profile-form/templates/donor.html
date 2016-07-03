@@ -3,7 +3,7 @@
     <h1>Donor profile</h1>
   </div>
   <div class="col-md-12">
-    <form class="todo-form" [formGroup]="myFormGroup">
+    <form class="todo-form" [formGroup]="myFormGroup" *ngIf="active">
       <fieldset>
         <div class="form-group"  [hidden]="field != 1">
           <label class="control-label" >First name</label>
