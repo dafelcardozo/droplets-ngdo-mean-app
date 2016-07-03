@@ -9,19 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Gis = (function () {
-    function Gis() {
-        setTimeout(displayMap, 2000);
+var Chat = (function () {
+    function Chat() {
+        io().on('chat message', function (msg) {
+            $('#messages').append($('<li>').text(msg));
+        });
     }
-    Gis = __decorate([
+    Chat.prototype.formSubmit = function () {
+        console.info("formSubmit");
+        io().emit('chat message', $('#m').val());
+        $('#m').val('');
+    };
+    Chat = __decorate([
         core_1.Component({
-            selector: 'gis',
-            templateUrl: 'map/templates/gis.html',
-            styleUrls: ['map/styles/gis.css']
+            selector: 'chat',
+            templateUrl: 'messaging/templates/chat.html',
+            styleUrls: ['messaging/styles/chat.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], Gis);
-    return Gis;
+    ], Chat);
+    return Chat;
 }());
-exports.Gis = Gis;
-//# sourceMappingURL=gis.js.map
+exports.Chat = Chat;
+//# sourceMappingURL=chat.js.map

@@ -41,5 +41,6 @@ var _donorSchema = new mongoose.Schema({
         required: 'Your blood group is very important for us'
     }
 });
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (_donorSchema);

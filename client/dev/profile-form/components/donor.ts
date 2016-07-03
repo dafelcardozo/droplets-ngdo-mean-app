@@ -22,7 +22,6 @@ import {
 import {DonorsService} from '../services/donor';
 import {DonorProfile} from '../models/donor';
 
-
 @Component({
   selector: 'donors',
   templateUrl: 'profile-form/templates/donor.html',
@@ -59,8 +58,8 @@ export class Donor implements OnInit {
      .subscribe((m) => {
        this.field = 1;
        this.active = false;
+       io().emit('chat message', firstName+' '+lastName+' has registered as a donor');
        setTimeout(() => this.active = true, 100);
-         io().emit('chat message', firstName+' '+lastName+' has registered as a donor');
        $("#myModal")["modal"]('hide');
      });
   }

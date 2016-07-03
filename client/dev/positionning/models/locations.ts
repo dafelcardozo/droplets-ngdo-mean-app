@@ -1,9 +1,13 @@
-interface IModel {
-  doStuff():number;
-}
 
-export class MyModel implements IModel {
-  doStuff():number {
-    return 1;
+
+export class Location {
+  constructor(
+    public longitude:number,
+    public latitude:number,
+    public coordinatesSystem:string,
+    public user:string
+  ) {
+
   }
+
 }

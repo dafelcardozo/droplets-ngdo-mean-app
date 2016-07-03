@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Gis = (function () {
-    function Gis() {
-        setTimeout(displayMap, 2000);
+var Locations = (function () {
+    function Locations() {
+        this.name = "yo, I'm your component :D";
     }
-    Gis = __decorate([
+    Locations = __decorate([
         core_1.Component({
-            selector: 'gis',
-            templateUrl: 'map/templates/gis.html',
-            styleUrls: ['map/styles/gis.css']
+            selector: 'locations',
+            templateUrl: 'positionning/templates/locations.html',
+            styleUrls: ['positionning/styles/locations.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], Gis);
-    return Gis;
+    ], Locations);
+    return Locations;
 }());
-exports.Gis = Gis;
-//# sourceMappingURL=gis.js.map
+exports.Locations = Locations;

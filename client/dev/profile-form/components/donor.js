@@ -43,8 +43,8 @@ var Donor = (function () {
             .subscribe(function (m) {
             _this.field = 1;
             _this.active = false;
-            setTimeout(function () { return _this.active = true; }, 100);
             io().emit('chat message', firstName + ' ' + lastName + ' has registered as a donor');
+            setTimeout(function () { return _this.active = true; }, 100);
             $("#myModal")["modal"]('hide');
         });
     };

@@ -15,6 +15,6 @@ export class Gis {
 //  name: string = `yo, I'm your component :D`;
 
   constructor() {
-    displayMap();
+    setTimeout(displayMap, 2000);
   }
 }
