@@ -48,6 +48,4 @@ donorSchema.static('removeById', (id) => {
 });
 
 let Donor  = mongoose.model('Donor', donorSchema);
-let donorDAO = Donor;
-//export default donor ;
-export default donorDAO ;
+export default Donor ;

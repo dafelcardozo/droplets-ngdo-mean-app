@@ -10,18 +10,14 @@ var _donorSchema = new mongoose.Schema({
         default: '',
         trim: true,
         required: 'Please give us your name',
-        validate: [function (v) {
-                return v.length <= 50;
-            }, 'name must be 50 chars in length or less']
+        validate: [function (v) { return v.length <= 50; }, 'name must be 50 chars in length or less']
     },
     lastName: {
         type: String,
         default: '',
         trim: true,
         required: 'Please give us your last name',
-        validate: [function (v) {
-                return v.length <= 50;
-            }, 'name must be 50 chars in length or less']
+        validate: [function (v) { return v.length <= 50; }, 'name must be 50 chars in length or less']
     },
     emailAddress: {
         type: String,
@@ -41,6 +37,6 @@ var _donorSchema = new mongoose.Schema({
         required: 'Your blood group is very important for us'
     }
 });
-
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (_donorSchema);
+//# sourceMappingURL=donor-model.js.map

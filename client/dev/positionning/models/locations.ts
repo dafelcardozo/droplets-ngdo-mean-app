@@ -1,11 +1,11 @@
 
 
-export class Location {
+export default class Location {
   constructor(
     public longitude:number,
     public latitude:number,
-    public coordinatesSystem:string,
-    public user:string
+    public coordinateSystem:string,
+    public object:string
   ) {
 
   }

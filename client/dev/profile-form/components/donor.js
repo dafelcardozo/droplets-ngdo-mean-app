@@ -14,10 +14,12 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var donor_1 = require('../services/donor');
 var donor_2 = require('../models/donor');
+var locations_1 = require('../../positionning/services/locations');
 var Donor = (function () {
-    function Donor(fb, _donorsService, el) {
+    function Donor(fb, _donorsService, el, locationService) {
         this._donorsService = _donorsService;
         this.el = el;
+        this.locationService = locationService;
         this.field = 1;
         this.active = true;
         this.myFormGroup = fb.group({
@@ -38,14 +40,18 @@ var Donor = (function () {
     };
     Donor.prototype.sendData = function (firstName, lastName, contactNumber, emailAddress, bloodGroup) {
         var _this = this;
-        var p = new donor_2.DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup);
-        this._donorsService.post(p)
+        var ls = this.locationService;
+        this._donorsService.post(new donor_2.DonorProfile(firstName, lastName, contactNumber, emailAddress, bloodGroup))
             .subscribe(function (m) {
             _this.field = 1;
             _this.active = false;
             io().emit('chat message', firstName + ' ' + lastName + ' has registered as a donor');
             setTimeout(function () { return _this.active = true; }, 100);
             $("#myModal")["modal"]('hide');
+            var position = JSON.parse($("#position")["val"]());
+            position.object = m['_id'];
+            ls.setLocation(position)
+                .subscribe(function (n) { return console.info("n: " + n); });
         });
     };
     Donor = __decorate([
@@ -54,10 +60,10 @@ var Donor = (function () {
             templateUrl: 'profile-form/templates/donor.html',
             styleUrls: ['profile-form/styles/donor.css'],
             directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
-            providers: [donor_1.DonorsService],
+            providers: [donor_1.DonorsService, locations_1.LocationService],
             styles: ["[hidden]:not([broken]) { display: none !important;}"]
         }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService, core_1.ElementRef])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService, core_1.ElementRef, locations_1.LocationService])
     ], Donor);
     return Donor;
 }());

@@ -7,3 +7,4 @@ var MyFactory = (function () {
     return MyFactory;
 }());
 exports.MyFactory = MyFactory;
+//# sourceMappingURL=locations.js.map

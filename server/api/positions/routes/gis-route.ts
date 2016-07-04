@@ -6,12 +6,13 @@ import {gisController} from '../controller/gis-controller';
 export class gisRoutes {
   static init(router:express.Router) {
     router
-      .route('/api/gis')
+      .route('/api/positions')
       .get(gisController.getAll)
       .post(gisController.createNew);
 
     router
-      .route('/api/gis/:id')
+      .route('/api/positions/:id')
       .delete(gisController.removeById);
   }
+
 }

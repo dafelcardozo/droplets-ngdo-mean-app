@@ -1,12 +1,13 @@
 "use strict";
 var Location = (function () {
-    function Location(longitude, latitude, coordinatesSystem, user) {
+    function Location(longitude, latitude, coordinateSystem, object) {
         this.longitude = longitude;
         this.latitude = latitude;
-        this.coordinatesSystem = coordinatesSystem;
-        this.user = user;
+        this.coordinateSystem = coordinateSystem;
+        this.object = object;
     }
     return Location;
 }());
-exports.Location = Location;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = Location;
 //# sourceMappingURL=locations.js.map

@@ -5,6 +5,6 @@ export class DonorProfile  {
     public contactNumber: string,
     public emailAddress: string,
     public bloodGroup:string
-
+    
   ) {  }
 }

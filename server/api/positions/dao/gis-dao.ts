@@ -9,7 +9,7 @@ gisSchema.static('getAll', () => {
   return new Promise((resolve, reject) => {
     let _query = {};
 
-    gis
+    Gis
     .find(_query)
     .exec((err, todos) => {
       err ? reject(err)
@@ -18,13 +18,13 @@ gisSchema.static('getAll', () => {
   });
 });
 
-gisSchema.static('createNew', (gis) => {
+gisSchema.static('createNew', gis => {
   return new Promise((resolve, reject) => {
       if (!_.isObject(gis)) {
         return reject(new TypeError('Todo is not a valid object.'));
       }
 
-      let _something = new gis(gis);
+      let _something = new Gis(gis);
 
       _something.save((err, saved) => {
         err ? reject(err)
@@ -39,7 +39,7 @@ gisSchema.static('removeById', (id) => {
         return reject(new TypeError('Id is not a valid string.'));
       }
 
-      gis
+      Gis
       .findByIdAndRemove(id)
       .exec((err, deleted) => {
         err ? reject(err)
@@ -48,6 +48,6 @@ gisSchema.static('removeById', (id) => {
     });
 });
 
-let gisModel = mongoose.model('gis', gisSchema);
+let Gis = mongoose.model('Gis', gisSchema);
 
-export default gisModel;
+export default Gis;

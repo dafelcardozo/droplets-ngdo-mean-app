@@ -40,6 +40,6 @@ donor_model_1.default.static('removeById', function (id) {
     });
 });
 var Donor = mongoose.model('Donor', donor_model_1.default);
-var donorDAO = Donor;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = donorDAO;
+exports.default = Donor;
+//# sourceMappingURL=donor-dao.js.map

@@ -25,7 +25,6 @@ var DonorsService = (function () {
             .post("/api/donor", JSON.stringify(donorProfile), { headers: headers })
             .map(function (r) { return r.json(); });
     };
-    DonorsService.ENDPOINT = '/api/todos/:id';
     DonorsService = __decorate([
         core_1.Injectable(),
         __param(0, core_1.Inject(http_1.Http)), 
@@ -34,3 +33,4 @@ var DonorsService = (function () {
     return DonorsService;
 }());
 exports.DonorsService = DonorsService;
+//# sourceMappingURL=donor.js.map
