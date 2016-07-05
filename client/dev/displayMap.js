@@ -1,3 +1,6 @@
+var map;
+var featuresLayer;
+
 var displayMap = function() {
   var esrijsonFormat = new ol.format.EsriJSON();
   var view = new ol.View({
@@ -13,7 +16,7 @@ var displayMap = function() {
     })
   });
 
-  var map = new ol.Map({
+  map = new ol.Map({
     layers: [raster],
     target: document.getElementById('map'),
     view: view
@@ -72,16 +75,21 @@ var displayMap = function() {
     })
   }));
 
-  geolocation.on('change:position', function() {
-    var coordinates = geolocation.getPosition();
-    positionFeature.setGeometry(coordinates ?new ol.geom.Point(coordinates) : null);
-    $("#position").val(JSON.stringify( {latitude:coordinates[0], longitude:coordinates[1], coordinateSystem:geolocation.getProjection().getCode()}));
-  });
+  // geolocation.on('change:position', function() {
+  //   var coordinates = geolocation.getPosition();
+  //   positionFeature.setGeometry(coordinates ?new ol.geom.Point(coordinates) : null);
+  //   $("#position").val(JSON.stringify( {latitude:coordinates[0], longitude:coordinates[1], coordinateSystem:geolocation.getProjection().getCode()}));
+  // });
 
-  new ol.layer.Vector({
+  // new ol.layer.Vector({
+  //   map: map,
+  //   source: new ol.source.Vector({
+  //     features: [accuracyFeature, positionFeature]
+  //   })
+  // });
+  featuresLayer = new ol.layer.Vector({
     map: map,
     source: new ol.source.Vector({
-      features: [accuracyFeature, positionFeature]
     })
   });
   // Fixes bug in which map appears twice

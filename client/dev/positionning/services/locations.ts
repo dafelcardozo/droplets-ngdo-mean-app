@@ -1,4 +1,3 @@
-import Location from '../models/locations';
 import {
   Inject,
   Injectable
@@ -14,7 +13,7 @@ import {
 } from '@angular/http';
 
 import 'rxjs/add/operator/map';
-
+import Location from '../../positionning/models/locations';
 
 @Injectable()
 export class LocationService  {
@@ -27,4 +26,12 @@ export class LocationService  {
                .post("/api/positions", JSON.stringify(location), {headers})
                .map(r =>  r.json());
   }
+  getLocations(min?:any, max?:any):Observable<Array<Location>> {
+    let headers = new Headers();
+    headers.append("Content-Type","application/json");
+    return this._http
+               .get("/api/positions", {headers})
+               .map(r =>  r.json());
+  }
+
 }

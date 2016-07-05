@@ -1,5 +1,4 @@
 
-
 export default class Location {
   constructor(
     public longitude:number,
@@ -7,7 +6,5 @@ export default class Location {
     public coordinateSystem:string,
     public object:string
   ) {
-
   }
-
 }

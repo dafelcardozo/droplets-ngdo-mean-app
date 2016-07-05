@@ -25,6 +25,13 @@ var LocationService = (function () {
             .post("/api/positions", JSON.stringify(location), { headers: headers })
             .map(function (r) { return r.json(); });
     };
+    LocationService.prototype.getLocations = function (min, max) {
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this._http
+            .get("/api/positions", { headers: headers })
+            .map(function (r) { return r.json(); });
+    };
     LocationService = __decorate([
         core_1.Injectable(),
         __param(0, core_1.Inject(http_1.Http)), 

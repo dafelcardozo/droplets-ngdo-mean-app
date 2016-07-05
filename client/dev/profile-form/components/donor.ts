@@ -1,5 +1,5 @@
 /// <reference path="../../bower_components/jquery/dist/jquery.d.ts" />
-/// <reference path="../../bower_components\socket.io-client\socket.io-client.d.ts" />
+/// <reference path="../../bower_components/socket.io-client/socket.io-client.d.ts" />
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
@@ -65,8 +65,6 @@ export class Donor implements OnInit {
        $("#myModal")["modal"]('hide');
 
        let position:Location = JSON.parse($("#position")["val"]());
-      //  console.info("location: "+position);
-      //  console.info("m['_id']: "+m['_id']);
        position.object = m['_id'];
        ls.setLocation(position)
        .subscribe(n => console.info("n: "+n));
