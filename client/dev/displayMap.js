@@ -75,18 +75,18 @@ var displayMap = function() {
     })
   }));
 
-  // geolocation.on('change:position', function() {
-  //   var coordinates = geolocation.getPosition();
-  //   positionFeature.setGeometry(coordinates ?new ol.geom.Point(coordinates) : null);
-  //   $("#position").val(JSON.stringify( {latitude:coordinates[0], longitude:coordinates[1], coordinateSystem:geolocation.getProjection().getCode()}));
-  // });
+  geolocation.on('change:position', function() {
+    var coordinates = geolocation.getPosition();
+    positionFeature.setGeometry(coordinates ?new ol.geom.Point(coordinates) : null);
+    $("#position").val(JSON.stringify( {latitude:coordinates[0], longitude:coordinates[1], coordinateSystem:geolocation.getProjection().getCode()}));
+  });
 
-  // new ol.layer.Vector({
-  //   map: map,
-  //   source: new ol.source.Vector({
-  //     features: [accuracyFeature, positionFeature]
-  //   })
-  // });
+  new ol.layer.Vector({
+    map: map,
+    source: new ol.source.Vector({
+      features: [accuracyFeature, positionFeature]
+    })
+  });
   featuresLayer = new ol.layer.Vector({
     map: map,
     source: new ol.source.Vector({

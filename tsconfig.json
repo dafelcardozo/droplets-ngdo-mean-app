@@ -23,7 +23,6 @@
         "client/dev/bower_components/socket.io-client/socket.io-client.d.ts",
         "client/dev/index.ts",
         "client/dev/map/components/gis.ts",
-        "client/dev/map/services/positions.ts",
         "client/dev/messaging/components/chat.ts",
         "client/dev/navbar/components/menu.ts",
         "client/dev/positionning/factory/locations.ts",

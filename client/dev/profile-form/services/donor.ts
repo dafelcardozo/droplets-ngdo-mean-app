@@ -26,4 +26,11 @@ export class DonorsService {
                .post("/api/donor", JSON.stringify(donorProfile), {headers})
                .map(r => r.json());
   }
+  get(id):Observable<DonorProfile> {
+    let headers = new Headers();
+    headers.append("Content-Type","application/json");
+    return this._http
+               .get("/api/donor/"+id, headers)
+               .map(r => r.json());
+  }
 }

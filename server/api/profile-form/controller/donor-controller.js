@@ -23,11 +23,10 @@ var donorController = (function () {
             .then(function () { return res.status(200).end(); })
             .catch(function (error) { return res.status(400).json(error); });
     };
-    donorController.find = function (req, res) {
-        var _id = req.params.id;
-        donor_dao_1.default['removeById'](_id)
-            .then(function () { return res.status(200).end(); })
-            .catch(function (error) { return res.status(400).json(error); });
+    donorController.findById = function (req, res, next) {
+        donor_dao_1.default.find({ _id: req.params.id }, function (err, docs) {
+            res.json(docs[0]);
+        });
     };
     return donorController;
 }());

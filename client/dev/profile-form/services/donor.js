@@ -25,6 +25,13 @@ var DonorsService = (function () {
             .post("/api/donor", JSON.stringify(donorProfile), { headers: headers })
             .map(function (r) { return r.json(); });
     };
+    DonorsService.prototype.get = function (id) {
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this._http
+            .get("/api/donor/" + id, headers)
+            .map(function (r) { return r.json(); });
+    };
     DonorsService = __decorate([
         core_1.Injectable(),
         __param(0, core_1.Inject(http_1.Http)), 

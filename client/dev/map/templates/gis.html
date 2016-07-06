@@ -1,12 +1,10 @@
 
-<div id="gispopup" class="ol-popup">
-  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-  <div id="popup-content">
-
-  </div>
-</div>
-
-
 <div id="info" >
 </div>
 <input type="hidden" id="position" />
+<div id="gispopup" class="ol-popup">
+  <a href="#" id="popup-closer" class="ol-popup-closer" (click)="closePopup()"></a>
+  <div id="popup-content">
+    {{donorP.firstName}} {{donorP.lastName}}: {{donorP.bloodGroup}}
+  </div>
+</div>

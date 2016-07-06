@@ -2,6 +2,7 @@
 
 import * as express from 'express';
 import donorDAO from '../dao/donor-dao';
+import * as _ from 'lodash';
 
 export class donorController {
   static getAll(req:express.Request, res:express.Response) {
@@ -31,12 +32,9 @@ export class donorController {
       .then(() => res.status(200).end())
       .catch(error => res.status(400).json(error));
   }
-  static find(req:express.Request, res:express.Response) {
-    let _id = req.params.id;
-
-    donorDAO
-      ['removeById'](_id)
-      .then(() => res.status(200).end())
-      .catch(error => res.status(400).json(error));
+  static findById(req:express.Request, res:express.Response, next) {
+    donorDAO.find({ _id: req.params.id }, function (err, docs) {
+              res.json(docs[0]);
+          });
   }
 }

@@ -31,7 +31,7 @@ donorSchema.static('createNew', (donor) => {
       });
   });
 });
-
+/*
 donorSchema.static('removeById', (id) => {
   return new Promise((resolve, reject) => {
       if (!_.isString(id)) {
@@ -47,5 +47,20 @@ donorSchema.static('removeById', (id) => {
     });
 });
 
+donorSchema.static('findById', (id) => {
+  return new Promise((resolve, reject) => {
+      if (!_.isString(id)) {
+        return reject(new TypeError('Id is not a valid string.'));
+      }
+      console.info("findById");
+      Donor
+      .findById(id)
+      .exec((err, res) => {
+        err ? reject(err)
+        : resolve(res[0]);
+      });
+    });
+});
+*/
 let Donor  = mongoose.model('Donor', donorSchema);
 export default Donor ;
