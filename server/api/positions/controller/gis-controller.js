@@ -23,4 +23,3 @@ var gisController = (function () {
     return gisController;
 }());
 exports.gisController = gisController;
-//# sourceMappingURL=gis-controller.js.map

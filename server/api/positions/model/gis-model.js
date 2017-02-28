@@ -9,4 +9,3 @@ var _gisSchema = new mongoose.Schema({
 });
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (_gisSchema);
-//# sourceMappingURL=gis-model.js.map

@@ -55,4 +55,3 @@ todo_model_1.default.static('getTodo', function (id) {
 var Todo = mongoose.model('Todo', todo_model_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Todo;
-//# sourceMappingURL=todo-dao.js.map

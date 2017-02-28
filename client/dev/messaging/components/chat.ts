@@ -1,4 +1,3 @@
-/// <reference path="../../bower_components\socket.io-client\socket.io-client.d.ts" />
 import {
   Component,
   Inject
@@ -9,6 +8,7 @@ import {
   templateUrl: 'messaging/templates/chat.html',
   styleUrls: ['messaging/styles/chat.css']
 })
+
 export class Chat {
   message:string;
 

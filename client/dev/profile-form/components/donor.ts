@@ -1,5 +1,4 @@
-/// <reference path="../../bower_components/jquery/dist/jquery.d.ts" />
-/// <reference path="../../bower_components/socket.io-client/socket.io-client.d.ts" />
+
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';

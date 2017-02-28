@@ -15,4 +15,3 @@ var gisRoutes = (function () {
     return gisRoutes;
 }());
 exports.gisRoutes = gisRoutes;
-//# sourceMappingURL=gis-route.js.map

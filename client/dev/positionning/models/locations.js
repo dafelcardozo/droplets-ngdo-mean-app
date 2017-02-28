@@ -10,4 +10,3 @@ var Location = (function () {
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Location;
-//# sourceMappingURL=locations.js.map

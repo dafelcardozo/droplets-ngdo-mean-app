@@ -39,4 +39,3 @@ var _donorSchema = new mongoose.Schema({
 });
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = (_donorSchema);
-//# sourceMappingURL=donor-model.js.map

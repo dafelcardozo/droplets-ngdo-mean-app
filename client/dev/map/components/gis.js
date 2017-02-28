@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var locations_1 = require('../../positionning/services/locations');
-var donor_1 = require('../../profile-form/services/donor');
-var donor_2 = require('../../profile-form/models/donor');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var locations_1 = require("../../positionning/services/locations");
+var donor_1 = require("../../profile-form/services/donor");
+var donor_2 = require("../../profile-form/models/donor");
 var Gis = (function () {
     function Gis(loc, don) {
         this.loc = loc;
@@ -140,16 +141,16 @@ var Gis = (function () {
         closer.blur();
         return false;
     };
-    Gis = __decorate([
-        core_1.Component({
-            selector: 'gis',
-            templateUrl: 'map/templates/gis.html',
-            styleUrls: ['map/styles/gis.css'],
-            providers: [locations_1.LocationService, donor_1.DonorsService]
-        }), 
-        __metadata('design:paramtypes', [locations_1.LocationService, donor_1.DonorsService])
-    ], Gis);
     return Gis;
 }());
+Gis = __decorate([
+    core_1.Component({
+        selector: 'gis',
+        templateUrl: 'map/templates/gis.html',
+        styleUrls: ['map/styles/gis.css'],
+        providers: [locations_1.LocationService, donor_1.DonorsService]
+    }),
+    __metadata("design:paramtypes", [locations_1.LocationService, donor_1.DonorsService])
+], Gis);
 exports.Gis = Gis;
 //# sourceMappingURL=gis.js.map

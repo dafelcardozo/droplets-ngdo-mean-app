@@ -7,6 +7,7 @@ var donorRoutes = (function () {
         router
             .route('/api/donor/:id')
             .get(donor_controller_1.donorController.findById);
+        //.delete(donorController.find)
         ;
         router
             .route('/api/donor')
@@ -16,4 +17,3 @@ var donorRoutes = (function () {
     return donorRoutes;
 }());
 exports.donorRoutes = donorRoutes;
-//# sourceMappingURL=donor-route.js.map

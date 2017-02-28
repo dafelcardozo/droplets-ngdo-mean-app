@@ -1,0 +1,27 @@
+{
+  "name": "droplets",
+  "main": "index.js",
+  "homepage": "https://github.com/dafelcardozo/droplets-ngdo-mean-app",
+  "authors": [
+    "Felipe Cardozo <dafelcardozo@gmail.com>"
+  ],
+  "description": "Droplets",
+  "keywords": [
+    "Droplets"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/dev/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.7.2",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "ol3": "ol3-bower#3.17.1"
+  }
+}

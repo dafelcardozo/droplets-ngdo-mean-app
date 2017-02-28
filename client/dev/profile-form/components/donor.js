@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-require('rxjs/add/operator/map');
-require('rxjs/Rx');
-var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
-var donor_1 = require('../services/donor');
-var donor_2 = require('../models/donor');
-var locations_1 = require('../../positionning/services/locations');
+Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs/add/operator/map");
+require("rxjs/Rx");
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var donor_1 = require("../services/donor");
+var donor_2 = require("../models/donor");
+var locations_1 = require("../../positionning/services/locations");
 var Donor = (function () {
     function Donor(fb, _donorsService, el, locationService) {
         this._donorsService = _donorsService;
@@ -54,18 +55,18 @@ var Donor = (function () {
                 .subscribe(function (n) { return console.info("n: " + n); });
         });
     };
-    Donor = __decorate([
-        core_1.Component({
-            selector: 'donors',
-            templateUrl: 'profile-form/templates/donor.html',
-            styleUrls: ['profile-form/styles/donor.css'],
-            directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
-            providers: [donor_1.DonorsService, locations_1.LocationService],
-            styles: ["[hidden]:not([broken]) { display: none !important;}"]
-        }), 
-        __metadata('design:paramtypes', [forms_1.FormBuilder, donor_1.DonorsService, core_1.ElementRef, locations_1.LocationService])
-    ], Donor);
     return Donor;
 }());
+Donor = __decorate([
+    core_1.Component({
+        selector: 'donors',
+        templateUrl: 'profile-form/templates/donor.html',
+        styleUrls: ['profile-form/styles/donor.css'],
+        directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
+        providers: [donor_1.DonorsService, locations_1.LocationService],
+        styles: ["[hidden]:not([broken]) { display: none !important;}"]
+    }),
+    __metadata("design:paramtypes", [forms_1.FormBuilder, donor_1.DonorsService, core_1.ElementRef, locations_1.LocationService])
+], Donor);
 exports.Donor = Donor;
 //# sourceMappingURL=donor.js.map

@@ -40,4 +40,3 @@ var LocationService = (function () {
     return LocationService;
 }());
 exports.LocationService = LocationService;
-//# sourceMappingURL=locations.js.map

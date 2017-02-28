@@ -16,8 +16,10 @@ var donor_1 = require('./profile-form/components/donor');
 var gis_1 = require('./map/components/gis');
 var chat_1 = require('./messaging/components/chat');
 var core_1 = require('@angular/core');
+// import { APP_ROUTER_PROVIDERS } from './routes';
 var App = (function () {
     function App() {
+        console.log("Cucu !");
     }
     App = __decorate([
         core_1.Component({
@@ -30,7 +32,7 @@ var App = (function () {
     <div class="modal-content">\
       <div class="modal-header">\
         <button type="button" class="close" data-dismiss="modal">&times;</button>\
-        <h4 class="modal-title">Modal Header</h4>\
+        <h4 class="modal-title">Donor data</h4>\
       </div>\
       <div class="modal-body">\
         <donors></donors>\
@@ -53,4 +55,3 @@ platform_browser_dynamic_1.bootstrap(App, [
     forms_1.provideForms(),
     http_1.HTTP_PROVIDERS
 ]);
-//# sourceMappingURL=index.js.map

@@ -42,4 +42,3 @@ gis_model_1.default.static('removeById', function (id) {
 var Gis = mongoose.model('Gis', gis_model_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Gis;
-//# sourceMappingURL=gis-dao.js.map

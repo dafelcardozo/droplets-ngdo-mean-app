@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var Chat = (function () {
     function Chat() {
         io().on('chat message', function (msg) {
@@ -20,15 +21,15 @@ var Chat = (function () {
         io().emit('chat message', $('#m').val());
         $('#m').val('');
     };
-    Chat = __decorate([
-        core_1.Component({
-            selector: 'chat',
-            templateUrl: 'messaging/templates/chat.html',
-            styleUrls: ['messaging/styles/chat.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], Chat);
     return Chat;
 }());
+Chat = __decorate([
+    core_1.Component({
+        selector: 'chat',
+        templateUrl: 'messaging/templates/chat.html',
+        styleUrls: ['messaging/styles/chat.css']
+    }),
+    __metadata("design:paramtypes", [])
+], Chat);
 exports.Chat = Chat;
 //# sourceMappingURL=chat.js.map

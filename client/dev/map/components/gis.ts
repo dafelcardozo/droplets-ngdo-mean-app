@@ -69,6 +69,7 @@ export class Gis implements OnInit   {
     });
 
     var accuracyFeature = new ol.Feature();
+    
     geolocation.on('change:accuracyGeometry', function() {
       accuracyFeature.setGeometry(geolocation.getAccuracyGeometry());
     });

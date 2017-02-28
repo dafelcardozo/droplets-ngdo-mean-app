@@ -26,7 +26,37 @@ donor_model_1.default.static('createNew', function (donor) {
         });
     });
 });
+/*
+donorSchema.static('removeById', (id) => {
+  return new Promise((resolve, reject) => {
+      if (!_.isString(id)) {
+        return reject(new TypeError('Id is not a valid string.'));
+      }
+
+      Donor
+      .findByIdAndRemove(id)
+      .exec((err, deleted) => {
+        err ? reject(err)
+        : resolve();
+      });
+    });
+});
+
+donorSchema.static('findById', (id) => {
+  return new Promise((resolve, reject) => {
+      if (!_.isString(id)) {
+        return reject(new TypeError('Id is not a valid string.'));
+      }
+      console.info("findById");
+      Donor
+      .findById(id)
+      .exec((err, res) => {
+        err ? reject(err)
+        : resolve(res[0]);
+      });
+    });
+});
+*/
 var Donor = mongoose.model('Donor', donor_model_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Donor;
-//# sourceMappingURL=donor-dao.js.map

@@ -40,4 +40,3 @@ var DonorsService = (function () {
     return DonorsService;
 }());
 exports.DonorsService = DonorsService;
-//# sourceMappingURL=donor.js.map
